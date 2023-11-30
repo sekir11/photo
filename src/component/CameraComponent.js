@@ -1,32 +1,31 @@
-import React, { useRef, useCallback, useState } from "react";
-import Webcam from "react-webcam";
+import React, { useState } from 'react';
 
-const CameraComponent = () => {
-  const webcamRef = useRef(null);
-  const [capturedImage, setCapturedImage] = useState(null);
+const PhotoUploader = () => {
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
-  const capture = useCallback(() => {
-    const imageSrc = webcamRef.current.getScreenshot();
-    setCapturedImage(imageSrc);
-  }, [webcamRef]);
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setSelectedPhoto(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <div>
-      <Webcam
-        audio={false}
-        ref={webcamRef}
-        screenshotFormat="image/jpeg"
-        style={{ width: "100%", height: "auto" }}
-      />
-      <button onClick={capture}>Capture Photo</button>
-      {capturedImage && (
+      <input type="file" accept="image/*" onChange={handleFileChange} />
+      {selectedPhoto && (
         <div>
-          <h2>Captured Photo</h2>
-          <img src={capturedImage} alt="captured" />
+          <h2>Selected Photo</h2>
+          <img src={selectedPhoto} alt="selected" style={{ width: '200px', height: '200px' }} />
         </div>
       )}
     </div>
   );
 };
 
-export default CameraComponent;
+export default PhotoUploader;
