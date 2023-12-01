@@ -6,17 +6,7 @@ import PhotoItem from "./component/PhotoItem";
 import { useState } from "react";
 
 function App() {
-  const inspectionItemList = [
-    "左前方",
-    "右後方",
-    "車台番号",
-    "荷室",
-    "運転席マット",
-  ];
-  localStorage.setItem(
-    "inspectionItemList",
-    JSON.stringify(inspectionItemList)
-  );
+  
   const [recordList, setRecordList] = useState([]);
 
   return (
