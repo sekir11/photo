@@ -22,7 +22,7 @@ export default function Home({ recordList }) {
         <RecordCard record={record}></RecordCard>
       ))}
       <Button
-        name={"btn-primary btn-create-record"}
+        name={"btn-primary btn-set"}
         action={() => {
           localStorage.setItem(
             "inspectionItemList",
@@ -30,6 +30,13 @@ export default function Home({ recordList }) {
           );
         }}
         buttonName={"項目をセット"}
+      ></Button>
+      <Button
+        name={"btn-primary btn-delete"}
+        action={() => {
+          localStorage.removeItem("inspectionItemList");
+        }}
+        buttonName={"項目クリア"}
       ></Button>
       <Button
         name={"btn-primary btn-create-record"}
