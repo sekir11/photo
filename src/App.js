@@ -6,7 +6,17 @@ import PhotoItem from "./component/PhotoItem";
 import { useState } from "react";
 
 function App() {
-
+  const inspectionItemList = [
+    "左前方",
+    "右後方",
+    "車台番号",
+    "荷室",
+    "運転席マット",
+  ];
+  localStorage.setItem(
+    "inspectionItemList",
+    JSON.stringify(inspectionItemList)
+  );
   const [recordList, setRecordList] = useState([]);
 
   return (
@@ -22,7 +32,12 @@ function App() {
         ></Route>
         <Route
           path={`${process.env.PUBLIC_URL}/record`}
-          element={<PhotoItem recordList={recordList} setRecordList={setRecordList}></PhotoItem>}
+          element={
+            <PhotoItem
+              recordList={recordList}
+              setRecordList={setRecordList}
+            ></PhotoItem>
+          }
         ></Route>
       </Routes>
     </Router>

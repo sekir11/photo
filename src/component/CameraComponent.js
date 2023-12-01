@@ -35,7 +35,7 @@ const PhotoUploader = ({ record, setRecord, inspectionItemName }) => {
       <div className="inspection-item-box" onClick={openFileInput}>
         <div className="inspection-item-image">
           {selectedPhoto && (
-            <img src={selectedPhoto} alt="selected" style={{ width: "100%" }} />
+            <img src={selectedPhoto} alt="noimage" style={{ width: "100%" }} />
           )}
         </div>
         <p>{inspectionItemName}</p>

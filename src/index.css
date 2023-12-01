@@ -51,11 +51,10 @@ input {
 .btn-primary {
   background-color: rgb(255, 140, 0);
   color: white;
-  padding: 4px 12px;
-  width: 80px;
+  padding: 12px 20px;
   border-radius: 12px;
   text-align: center;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .btn-login {
@@ -67,7 +66,7 @@ input {
   position: fixed;
   left: 50%;
   transform: translate(-50%, -50%);
-  bottom: 30px;
+  bottom: 20px;
 }
 
 .header {
@@ -106,7 +105,7 @@ input {
 
 .record-card {
   width: 90%;
-  margin: 0 auto;
+  margin: 10px auto;
   border: 1px solid black;
   border-radius: 12px;
 }
