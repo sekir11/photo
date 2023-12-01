@@ -62,7 +62,8 @@ input {
   margin: 20px auto 0;
 }
 
-.btn-create-record, .btn-complete-record {
+.btn-create-record,
+.btn-complete-record {
   position: fixed;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -101,4 +102,34 @@ input {
 .item {
   width: 80%;
   margin: 0 10px;
+}
+
+.record-card {
+  width: 90%;
+  margin: 0 auto;
+  border: 1px solid black;
+  border-radius: 12px;
+}
+
+.record-card p {
+  margin: 4px 8px;
+}
+
+.record-card-images {
+  display: flex;
+  justify-content: space-between;
+}
+
+.record-card img {
+  width: 100%;
+}
+
+.record-card .left {
+  margin: 10px;
+  width: 50%;
+}
+
+.record-card .right {
+  margin: 10px 10px 10px 0;
+  width: 50%;
 }

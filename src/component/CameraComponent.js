@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 
-const PhotoUploader = ({ inspectionItemName }) => {
+const PhotoUploader = ({ record, setRecord, inspectionItemName }) => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   const fileInputRef = useRef(null);
@@ -16,6 +16,9 @@ const PhotoUploader = ({ inspectionItemName }) => {
       const reader = new FileReader();
       reader.onloadend = () => {
         setSelectedPhoto(reader.result);
+        if (setRecord != null) {
+          setRecord([...record, reader.result]);
+        }
       };
       reader.readAsDataURL(file);
     }
