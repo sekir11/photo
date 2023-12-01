@@ -12,7 +12,10 @@ export default function PhotoItem() {
         action={() => navigate(`${process.env.PUBLIC_URL}/home`)}
       ></Header2>
       <ItemList></ItemList>
-      <Button buttonName={"完 了"} name={"btn-primary"}></Button>
+      <Button
+        buttonName={"完 了"}
+        name={"btn-primary btn-complete-record"}
+      ></Button>
     </div>
   );
 }

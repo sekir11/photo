@@ -62,7 +62,7 @@ input {
   margin: 20px auto 0;
 }
 
-.btn-create-record {
+.btn-create-record, .btn-complete-record {
   position: fixed;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -75,4 +75,30 @@ input {
   display: flex;
   justify-content: space-between;
   font-size: 12px;
+}
+
+.inspection-item-box {
+  background-color: white;
+  border-radius: 12px;
+  border: 1px solid black;
+  width: 100%;
+}
+.inspection-item-image {
+  height: 100px;
+}
+
+.inspection-item-box img {
+  border-radius: 12px 12px 0 0;
+  height: 100px;
+}
+
+.item-list {
+  display: flex;
+
+  margin: 20px 16px;
+}
+
+.item {
+  width: 80%;
+  margin: 0 10px;
 }

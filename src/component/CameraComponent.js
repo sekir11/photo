@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from "react";
 
-const PhotoUploader = () => {
+const PhotoUploader = ({ inspectionItemName }) => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
+
+  const fileInputRef = useRef(null);
+
+  const openFileInput = () => {
+    fileInputRef.current.click();
+  };
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
-    
+
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
@@ -16,14 +22,21 @@ const PhotoUploader = () => {
   };
 
   return (
-    <div>
-      <input type="file" accept="image/*" onChange={handleFileChange} />
-      {selectedPhoto && (
-        <div>
-          <h2>Selected Photo</h2>
-          <img src={selectedPhoto} alt="selected" style={{ width: '200px', height: '200px' }} />
+    <div className="item">
+      <input
+        type="file"
+        ref={fileInputRef}
+        style={{ display: "none" }}
+        onChange={handleFileChange}
+      />
+      <div className="inspection-item-box" onClick={openFileInput}>
+        <div className="inspection-item-image">
+          {selectedPhoto && (
+            <img src={selectedPhoto} alt="selected" style={{ width: "100%" }} />
+          )}
         </div>
-      )}
+        <p>{inspectionItemName}</p>
+      </div>
     </div>
   );
 };
