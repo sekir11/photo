@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 
-const PhotoUploader = ({ record, setRecord, inspectionItemName }) => {
+const PhotoUploader = ({ key, record, setRecord, inspectionItemName }) => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   const fileInputRef = useRef(null);
@@ -25,7 +25,7 @@ const PhotoUploader = ({ record, setRecord, inspectionItemName }) => {
   };
 
   return (
-    <div className="item">
+    <div className="item" key={key}>
       <input
         type="file"
         ref={fileInputRef}

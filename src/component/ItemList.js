@@ -17,12 +17,14 @@ export default function ItemList({ record, setRecord }) {
             list.push(
               <div className="item-list" key={i}>
                 <Item
+                key={inspectionCount}
                   record={record}
                   setRecord={setRecord}
                   inspectionItemName={inspectionItemNameList[inspectionCount++]}
                 ></Item>
                 {inspectionItemNameList[inspectionCount] && (
                   <Item
+                  key={inspectionCount}
                     record={record}
                     setRecord={setRecord}
                     inspectionItemName={
