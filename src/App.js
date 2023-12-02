@@ -5,17 +5,20 @@ import Home from "./component/Home";
 import PhotoItem from "./component/PhotoItem";
 import { useState } from "react";
 
-
 function App() {
   const [recordList, setRecordList] = useState([]);
 
-  // document.addEventListener(
-  //   "touchmove",
-  //   (event: any) => {
-  //     event.preventDefault();
-  //   },
-  //   { passive: false }
-  // );
+  document.addEventListener(
+    "touchmove",
+    function (event) {
+      // タッチイベントが1つ以上の場合、縦スクロールとみなしてデフォルトの動作を許可
+      if (event.touches.length > 1) return;
+
+      // 横スワイプのデフォルトの動作を無効化
+      event.preventDefault();
+    },
+    { passive: false }
+  );
 
   return (
     <Router>
