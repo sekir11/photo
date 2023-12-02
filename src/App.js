@@ -8,14 +8,28 @@ import { useState } from "react";
 function App() {
   const [recordList, setRecordList] = useState([]);
 
+  let startX, startY;
+
+  document.addEventListener("touchstart", function (event) {
+    // タッチが始まった位置を保存
+    startX = event.touches[0].clientX;
+    startY = event.touches[0].clientY;
+  });
+
   document.addEventListener(
     "touchmove",
     function (event) {
       // タッチイベントが1つ以上の場合、縦スクロールとみなしてデフォルトの動作を許可
       if (event.touches.length > 1) return;
 
-      // 横スワイプのデフォルトの動作を無効化
-      event.preventDefault();
+      // タッチが始まった位置からの横方向と縦方向の移動距離を計算
+      const deltaX = event.touches[0].clientX - startX;
+      const deltaY = event.touches[0].clientY - startY;
+
+      // 横スワイプと判断された場合、デフォルトの動作を無効化
+      if (Math.abs(deltaY) < Math.abs(deltaX)) {
+        event.preventDefault();
+      }
     },
     { passive: false }
   );
