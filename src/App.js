@@ -8,11 +8,10 @@ import { useState } from "react";
 function App() {
   const [recordList, setRecordList] = useState([]);
 
-  let startX, startY;
+  let startY;
 
   document.addEventListener("touchstart", function (event) {
     // タッチが始まった位置を保存
-    startX = event.touches[0].clientX;
     startY = event.touches[0].clientY;
   });
 
@@ -22,18 +21,19 @@ function App() {
       // タッチイベントが1つ以上の場合、縦スクロールとみなしてデフォルトの動作を許可
       if (event.touches.length > 1) return;
 
-      // タッチが始まった位置からの横方向と縦方向の移動距離を計算
-      const deltaX = event.touches[0].clientX - startX;
+      // タッチが始まった位置からの縦方向の移動距離を計算
       const deltaY = event.touches[0].clientY - startY;
 
-      // 横スワイプと判断された場合、デフォルトの動作を無効化
-      if (Math.abs(deltaY) < Math.abs(deltaX)) {
-        event.preventDefault();
+      // 縦スクロールと判断された場合、デフォルトの動作を許可
+      if (Math.abs(deltaY) > 10) {
+        return;
       }
+
+      // 横スワイプと判断された場合、デフォルトの動作を無効化
+      event.preventDefault();
     },
     { passive: false }
   );
-
   return (
     <Router>
       <Routes>
