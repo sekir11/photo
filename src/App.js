@@ -5,10 +5,6 @@ import Home from "./component/Home";
 import PhotoItem from "./component/PhotoItem";
 import { useState } from "react";
 
-(function () {
-  var c = document.getElementById("main");
-  c.addEventListener = null;
-})();
 
 function App() {
   const [recordList, setRecordList] = useState([]);
