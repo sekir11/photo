@@ -6,8 +6,15 @@ import PhotoItem from "./component/PhotoItem";
 import { useState } from "react";
 
 function App() {
-  
   const [recordList, setRecordList] = useState([]);
+
+  document.addEventListener(
+    "touchmove",
+    (event: any) => {
+      event.preventDefault();
+    },
+    { passive: false }
+  );
 
   return (
     <Router>
