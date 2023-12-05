@@ -28,6 +28,8 @@ const PhotoUploader = ({ key, record, setRecord, inspectionItemName }) => {
     <div className="item" key={key}>
       <input
         type="file"
+        capture="environment"
+        accept="image/*"
         ref={fileInputRef}
         style={{ display: "none" }}
         onChange={handleFileChange}
