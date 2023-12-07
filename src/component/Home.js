@@ -15,29 +15,17 @@ export default function Home({ recordList }) {
     "運転席マット",
   ];
 
+  localStorage.setItem(
+    "inspectionItemList",
+    JSON.stringify(inspectionItemList)
+  );
+
   return (
     <div>
       <Header></Header>
       {recordList.map((record) => (
         <RecordCard record={record}></RecordCard>
       ))}
-      <Button
-        name={"btn-primary btn-set"}
-        action={() => {
-          localStorage.setItem(
-            "inspectionItemList",
-            JSON.stringify(inspectionItemList)
-          );
-        }}
-        buttonName={"項目をセット"}
-      ></Button>
-      <Button
-        name={"btn-primary btn-delete"}
-        action={() => {
-          localStorage.removeItem("inspectionItemList");
-        }}
-        buttonName={"項目クリア"}
-      ></Button>
       <Button
         name={"btn-primary btn-create-record"}
         action={() => {

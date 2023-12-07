@@ -20,7 +20,7 @@ code {
   left: 50%;
   transform: translate(-50%, -50%);
   top: 50%;
-  width: 30%;
+  width: 50%;
   border-radius: 12px;
 }
 
@@ -30,17 +30,23 @@ code {
 
 .input-dealer-code {
   margin: 0 10px 0 0;
+  padding: 8px;
   width: 50%;
+  font-size: 24px;
 }
 
 .input-shop-code {
   margin: 0 0 0 10px;
+  padding: 8px;
   width: 50%;
+  font-size: 24px;
 }
 
 .input-dealer-password {
   width: 100%;
   margin-top: 20px;
+  padding: 8px;
+  font-size: 24px;
 }
 
 input {
@@ -97,6 +103,11 @@ input {
   border-radius: 12px 12px 0 0;
   height: 100px;
 }
+ .inspection-item-box p {
+  padding: 8px;
+  margin: 0;
+  border-top: 1px solid black;
+ }
 
 .item-list {
   display: flex;
